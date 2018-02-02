@@ -4,7 +4,6 @@
   var LibraryDAO = require('../dao/LibraryDAO');
   const Book = require('../dao/Book')
 
-
   module.exports = function getBooks (callback, title) { // The title is optional and is only present when searching. (You need yo modify the books.js file first)
     const books = [
       new Book(
@@ -32,7 +31,7 @@
         'As the Shadow of Mordor grows across the land, the Companions of the Ring have become involved in separate adventures. Aragorn, revealed as the hidden heir of the ancient Kings of the West, has joined with the Riders of Rohan against the forces of Isengard, and takes part in the desperate victory of the Hornburg. Merry and Pippin, captured by Orcs, escape into Fangorn Forest and there encounter the Ents. Gandalf has miraculously returned and defeated the evil wizard, Saruman. Sam has left his master for dead after a battle with the giant spider, Shelob; but Frodo is still alive—now in the foul hands of the Orcs. And all the while the armies of the Dark Lord are massing as the One Ring draws ever nearer to the Cracks of Doom.\n\nThird part of "The Lord of the Rings"'
       )
     ];
-    console.log(JSON.stringify(books))
+    callback(JSON.stringify(books, null, '\t'))
   };
 
 }());
