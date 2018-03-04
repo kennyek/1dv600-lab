@@ -4,7 +4,7 @@ const expect = require("chai").expect
 const GetBookResource = require('../app/resources/GetBookResource')
 
 describe('Get Book Resource', () => {
-  describe('View Books', () => {
+  describe('View Book', () => {
     let book = null
     let error = null
 
@@ -16,11 +16,15 @@ describe('Get Book Resource', () => {
       }
     })
 
-    it('should return a JSON object', () => expect(error).to.be.null)
+    it('the response should contain a JSON object', () => {
+      expect(error).to.be.null
+    })
 
-    it('containing an object', () => expect(book).to.be.an('object'))
+    it('the JSON object should contain an object', () => {
+      expect(book).to.be.an('object')
+    })
 
-    it('representing a book', () => {
+    it('the object should represent a book', () => {
       const bookProperties = [
         'title', 'author', 'genre', 'price', 'publish_date', 'description'
       ]
