@@ -1,16 +1,9 @@
-(function () {
-  "use strict";
+'use strict'
 
-  var LibraryDAO = require('../dao/LibraryDAO');
-  const Book = require('../dao/Book')
+const LibraryDAO = require('../dao/LibraryDAO')
 
-  var RemoveBookResource = require('./RemoveBookResource');
-
-  module.exports = function getBooks (callback, title) { // The title is optional and is only present when searching. (You need yo modify the books.js file first)
-    LibraryDAO.readXMLFile()
-      .then(jsData => {
-        callback(JSON.stringify(jsData, null, '\t'))
-      })
-  };
-
-}());
+module.exports = function getBooks (callback, title) { // The title is optional and is only present when searching. (You need yo modify the books.js file first)
+  LibraryDAO.readXMLFile(function (books) {
+    callback(JSON.stringify(books, null, '\t'))
+  })
+}

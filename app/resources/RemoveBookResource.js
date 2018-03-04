@@ -1,19 +1,17 @@
-(function () {
-    "use strict";
+'use strict'
 
-    var LibraryDAO = require('../dao/LibraryDAO');
+const LibraryDAO = require('../dao/LibraryDAO')
 
-    module.exports = function deleteBook (id, callback) {
-        LibraryDAO.readXMLFile()
-            .then(books => {
-                const newBooks = []
-                for (let book of books) {
-                    if (book['$'].id === id) continue
-                    newBooks.push(book)
-                }
+module.exports = function deleteBook (id, callback) {
+  LibraryDAO.readXMLFile(function (books) {
+    const newBooks = []
 
-                LibraryDAO.writeXMLFile(newBooks)
-            })
-    };
+    for (let book of books) {
+      if (book.id == id) continue
+      newBooks.push(book)
+    }
 
-}());
+    LibraryDAO.writeXMLFile(newBooks)
+    callback(JSON.stringify(newBooks, null, '\t'))
+  })
+}
