@@ -29,6 +29,7 @@ describe('Get Book Resource', () => {
         'title', 'author', 'genre', 'price', 'publish_date', 'description'
       ]
       
+      // check if the item has all book properties
       bookProperties.forEach(bookProperty => {
         expect(book).to.haveOwnProperty(bookProperty)
       })
