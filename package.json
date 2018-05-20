@@ -4,7 +4,8 @@
   "scripts": {
     "start": "nodemon -L app.js",
     "test": "mocha --reporter spec",
-    "prestart": "npm test"
+    "prestart": "npm test",
+    "dev": "nodemon -L app.js"
   },
   "dependencies": {
     "body-parser": "^1.12.0",
